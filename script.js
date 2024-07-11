@@ -1,21 +1,24 @@
-const pokemonID = document.getElementById("pokemon-id");
-const pokemonName = document.getElementById("pokemon-name");
-const spriteContainer = document.getElementById("sprite-container");
-const types = document.getElementById("types");
-const height = document.getElementById("height");
-const weight = document.getElementById("weight");
-const hp = document.getElementById("hp");
-const attack = document.getElementById("attack");
-const defense = document.getElementById("defense");
-const specialAttack = document.getElementById("special-attack");
-const specialDefense = document.getElementById("special-defense");
-const speed = document.getElementById("speed");
-const searchForm = document.getElementById("search-form");
-const searchInput = document.getElementById("search-input");
+const pokemonID = document.getElementById('pokemon-id');
+const pokemonName = document.getElementById('pokemon-name');
+const spriteContainer = document.getElementById('sprite-container');
+const types = document.getElementById('types');
+const height = document.getElementById('height');
+const weight = document.getElementById('weight');
+const hp = document.getElementById('hp');
+const attack = document.getElementById('attack');
+const defense = document.getElementById('defense');
+const specialAttack = document.getElementById('special-attack');
+const specialDefense = document.getElementById('special-defense');
+const speed = document.getElementById('speed');
+const searchForm = document.getElementById('search-form');
+const searchInput = document.getElementById('search-input');
 
 const getPokemon = async () => {
   try {
     const pokemonNameOrId = searchInput.value.toLowerCase();
+    const response = await fetch(
+      `https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${pokemonNameOrId}`
+    );
     const data = await response.json();
 
     // Set Pokémon info
@@ -24,7 +27,7 @@ const getPokemon = async () => {
     weight.textContent = `Weight: ${data.weight}`;
     height.textContent = `Height: ${data.height}`;
     spriteContainer.innerHTML = `
-      <img id="sprite" src="${data.sprites.front_default}" alt="${data.name} front default sprite">
+      <img id='sprite' src='${data.sprites.front_default}' alt='${data.name} front default sprite'>
     `;
 
     // Set stats
@@ -37,36 +40,34 @@ const getPokemon = async () => {
 
     // Set types
     types.innerHTML = data.types
-      .map(
-        (obj) => `<span class="type ${obj.type.name}">${obj.type.name}</span>`,
-      )
-      .join("");
+      .map(obj => `<span class='type ${obj.type.name}'>${obj.type.name}</span>`)
+      .join('');
   } catch (err) {
     resetDisplay();
-    alert("Pokémon not found");
+    alert('Pokémon not found');
     console.log(`Pokémon not found: ${err}`);
   }
 };
 
 const resetDisplay = () => {
-  const sprite = document.getElementById("sprite");
+  const sprite = document.getElementById('sprite');
   if (sprite) sprite.remove();
 
   // reset stats
-  pokemonName.textContent = "";
-  pokemonID.textContent = "";
-  types.innerHTML = "";
-  height.textContent = "";
-  weight.textContent = "";
-  hp.textContent = "";
-  attack.textContent = "";
-  defense.textContent = "";
-  specialAttack.textContent = "";
-  specialDefense.textContent = "";
-  speed.textContent = "";
+  pokemonName.textContent = '';
+  pokemonID.textContent = '';
+  types.innerHTML = '';
+  height.textContent = '';
+  weight.textContent = '';
+  hp.textContent = '';
+  attack.textContent = '';
+  defense.textContent = '';
+  specialAttack.textContent = '';
+  specialDefense.textContent = '';
+  speed.textContent = '';
 };
 
-searchForm.addEventListener("submit", (e) => {
+searchForm.addEventListener('submit', e => {
   e.preventDefault();
   getPokemon();
 });
