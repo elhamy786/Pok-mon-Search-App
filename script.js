@@ -35,7 +35,7 @@ const getPokemon = async () => {
   try {
     const pokemonNameOrId = searchInput.value.toLowerCase();
     const response = await fetch(
-      `https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${pokemonNameOrId}`
+        `https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${pokemonNameOrId}`,
     );
     const data = await response.json();
 
@@ -58,16 +58,17 @@ const getPokemon = async () => {
 
     // Set types
     types.innerHTML = data.types
-      .map(obj => `<span class='type ${obj.type.name}'>${obj.type.name}</span>`)
+      .map((obj) => `<span class='type ${obj.type.name}'>${obj.type.name}</span>`)
       .join('');
   } catch (err) {
     resetDisplay();
+    // eslint-disable-next-line no-alert
     alert('Pokémon not found');
-    console.log(`Pokémon not found: ${err}`);
   }
 };
 
-searchForm.addEventListener('submit', e => {
-  e.preventDefault();
-  getPokemon();
-});
+searchForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    getPokemon();
+  });
+  
