@@ -35,7 +35,7 @@ const getPokemon = async () => {
   try {
     const pokemonNameOrId = searchInput.value.toLowerCase();
     const response = await fetch(
-        `https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${pokemonNameOrId}`,
+      `https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${pokemonNameOrId}`,
     );
     const data = await response.json();
 
@@ -68,7 +68,6 @@ const getPokemon = async () => {
 };
 
 searchForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    getPokemon();
-  });
-  
+  e.preventDefault();
+  getPokemon();
+});
