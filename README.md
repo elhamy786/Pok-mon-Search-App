@@ -19,7 +19,7 @@ const resetDisplay = () => {
 
 ## Demo 📸
 
-[Live Demo](https://elhamy786.github.io/Telephone-number_validator/)
+[Live Demo](https://elhamy786.github.io/Pokemon-Search-App/)
 
 ![Screenshot](./Picture2.png)
 
@@ -28,7 +28,6 @@ const resetDisplay = () => {
 - HTML
 - CSS
 - JavaScript
-- React
 
 ## Installation 💻
 
