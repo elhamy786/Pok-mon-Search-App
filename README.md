@@ -1,3 +1,4 @@
+Pokémon-Search-App
 # Pokemon-Search-App 🚀
 
 ## 📝
@@ -65,3 +66,7 @@ Clone the repository, open it in a code editor, ensure HTML, CSS, and JavaScript
 ## Contributing 🤝
 Contribute by submitting bug reports, feature requests, or pull requests on the project's GitHub repository, ensuring to follow the contribution guidelines outlined in the README.
 
+
+# Pokemon-Search-App
+The Pokémon Search App is a web application that allows users to search for Pokémon by name or ID and view detailed information about each Pokémon.  The app fetches data such as the Pokémon's name, ID, weight, height, stats (HP, attack, defense, special attack, special defense, speed), types, and sprite image.
+Development
